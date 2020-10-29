@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+import React from 'react';
+import Routes from './config/Routes'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-    <h1>YO</h1>
+    <Routes />
     </div>
   );
 }
