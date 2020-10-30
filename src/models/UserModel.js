@@ -4,7 +4,7 @@ class UserModel {
   static show() {
     return fetch(URL, {
       method: "GET",
-      headers: { authorization: `Bearer ${localStorage.uid}` },
+      headers: { authorization: `Bearer ${localStorage.getItem("uid")}` },
     }).then((response) => response.json());
   }
 }

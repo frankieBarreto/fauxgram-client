@@ -4,7 +4,7 @@ class AuthModel {
     static register = (data) => {
         return fetch(`${URL}/register`, {
             method: "POST",
-            header: {
+            headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
@@ -13,7 +13,7 @@ class AuthModel {
     static login = (data) => {
         return fetch(`${URL}/login`, {
             method: "POST",
-            header: {
+            headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),

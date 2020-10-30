@@ -10,7 +10,7 @@ function Register(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
+    console.log(`Yo`)
     AuthModel.register({ username, email, password }).then((response) => {
       console.log(response);
       if (response.status === 201) {
