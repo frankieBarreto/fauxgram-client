@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import UserModel from "../models/UserModel";
+import UserModel from "../../models/UserModel";
 
 import { useRecoilState } from "recoil";
-import { userState } from "../recoil/atoms";
+import { userState } from "../../recoil/atoms";
 
-import "./Header.css";
+// import "./Header.css";
 
 const Header = (props) => {
   const [user, setUser] = useRecoilState(userState);
@@ -28,7 +28,7 @@ const Header = (props) => {
   return (
       <header>
       <div className="logo">
-
+      <h2>Fauxgram</h2>
           <ul>
           <li>
               <NavLink to={"/login"}>Login</NavLink>

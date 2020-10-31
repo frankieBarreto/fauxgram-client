@@ -1,12 +1,12 @@
 import React from 'react';
 import Routes from './config/Routes'
-import './App.css';
-import Header from './components/Header';
+// import './App.css';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <div className="App">
-    <Header />
+    {/* <Header /> */}
     <Routes />
     </div>
   );
