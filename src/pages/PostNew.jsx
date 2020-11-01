@@ -1,45 +1,57 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import PostModel from "../models/PostModel";
 
-function NewPost(props) {
-  const [image, setImage] = useState("");
-  const [caption, setCaption] = useState("");
+class NewPost extends Component {
+  state = {
+    image: "",
+    user: "",
+    caption: "",
+    likes: 0,
+  };
 
-  function handleSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
 
-    PostModel.create({ image, caption}).then((data) => {
-      props.history.push("/post");
+    PostModel.create(this.state).then((json) => {
+      this.props.history.push("/post");
     });
   }
 
-  return (
-    <div>
-    <h2>New Post</h2>
-    <form onSubmit={handleSubmit}>
-      <div className='form-input'>
-        <label htmlFor='caption'>Caption</label>
-        <input
-          type='text'
-          name='caption'
-          onChange={(e) => setCaption(e.target.value)}
-          value={caption}
-        />
-      </div>
-      <div className='form-input'>
-        <label htmlFor='image'>Image URL</label>
-        <input
-          type='text'
-          name='image'
-          onChange={(e) => setImage(e.target.value)}
-          value={image}
-        />
-      </div>
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
 
-      <input type='submit' value='Save!' />
-    </form>
-  </div>
-  )
+  render() {
+    return (
+      <div>
+        <h2>New Post</h2>
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-input">
+            <label htmlFor="caption">Caption</label>
+            <input
+              type="text"
+              name="caption"
+              onChange={this.handleChange}
+              value={this.state.caption}
+            />
+          </div>
+          <div className="form-input">
+            <label htmlFor="image">Image URL</label>
+            <input
+              type="text"
+              name="image"
+              onChange={this.handleChange}
+              value={this.state.image}
+            />
+          </div>
+
+          <input type="submit" value="Save!" />
+        </form>
+      </div>
+    );
+  }
 }
 
 export default NewPost;

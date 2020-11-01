@@ -5,7 +5,7 @@ import UserModel from "../../models/UserModel";
 import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/atoms";
 
-// import "./Header.css";
+import "./Header.css";
 
 const Header = (props) => {
   const [user, setUser] = useRecoilState(userState);
@@ -35,6 +35,15 @@ const Header = (props) => {
           </li>
           <li>
               <NavLink to={"/register"}>Register</NavLink>
+          </li>
+          <li>
+              <NavLink to={"/posts"}>Posts</NavLink>
+          </li>
+          <li>
+              <NavLink to={"post/new"}>PostNew</NavLink>
+          </li>
+          <li>
+              <NavLink to={"/ProfilePage"}>Profile</NavLink>
           </li>
 
           </ul>

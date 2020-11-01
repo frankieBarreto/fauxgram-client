@@ -1,12 +1,35 @@
-import React from "react";
+import React, { Component } from "react";
 import PostCard from "../components/Post/PostCard"
-import usePost from "../hooks/usePost"
+import PostModel from "../models/PostModel";
 
 
 
-function PostShow(props) {
-    const [post] = usePost(props.match.params.id);
-    return post ? <PostCard post={post}/> : <h3>Loading..</h3>
+
+class PostShow extends Component {
+    state = {
+        post: null,
+    }
+
+    componentDidMount() {
+        this.fetchPost();
+    }
+
+    fetchPost = () => {
+        PostModel.show(this.props.match.params.id)
+          .then(json =>{
+              this.setState({
+                  post:json.post
+              })
+          })
+    }
+
+    render() {
+        return (
+            this.state.post ?
+            <PostCard post={this.state.post} /> :
+            <h4>Waiting on post...</h4>
+        )
+    }
 }
 
 export default PostShow;

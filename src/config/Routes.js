@@ -8,6 +8,7 @@ import PostNew from "../pages/PostNew.jsx"
 import PostShow from "../pages/PostShow.jsx"
 import PostList from "../pages/PostList.jsx"
 import PostEdit from "../pages/PostEdit.jsx"
+import ProfilePage from "../pages/ProfilePage.jsx"
 
 const Routes = (props) => {
     return (
@@ -19,6 +20,7 @@ const Routes = (props) => {
             <Route path="/post/:id" component={PostShow} />
             <Route path="/post/:id/edit" component={PostEdit} />
             <Route path="/posts" component={PostList} />
+            <Route path="/Profile" component={ProfilePage} />
         </Switch>
     )
 }
