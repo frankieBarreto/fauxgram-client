@@ -33,16 +33,17 @@ class PostEdit extends Component {
   };
 
   handleChange = (e) => {
-    if (e.target.type !== "text") {
-      this.setState((prevState) => ({
-        image: prevState.image,
-      }));
-    } else {
+    // if (e.target.type !== "text") {
+    //   this.setState((prevState) => ({
+    //     image: prevState.image,
+    //   }));
+    // } else {
       this.setState({
         [e.target.name]: e.target.value,
       });
-    }
+    // }
   };
+
 
   render() {
     return (

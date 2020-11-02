@@ -2,17 +2,18 @@ import React, { Component } from "react";
 import PostModel from "../models/PostModel";
 
 class NewPost extends Component {
+  // TODO bring in user id
   state = {
     image: "",
-    user: "",
     caption: "",
-    likes: 0,
   };
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
 
-    PostModel.create(this.state).then((json) => {
+    PostModel.create(this.state)
+      .then((json) => {
+      console.log("post.create: ", this.state)
       this.props.history.push("/post");
     });
   }

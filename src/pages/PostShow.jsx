@@ -23,6 +23,8 @@ class PostShow extends Component {
           })
     }
 
+    
+
     render() {
         return (
             this.state.post ?

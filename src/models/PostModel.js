@@ -28,6 +28,8 @@ class PostModel {
             body: JSON.stringify(postData),
         }).then((response) => response.json());
     };
+
+    
 }
 
 

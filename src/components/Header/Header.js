@@ -10,10 +10,12 @@ import "./Header.css";
 const Header = (props) => {
   const [user, setUser] = useRecoilState(userState);
 
+  
   useEffect(function () {
     if (localStorage.getItem("uid")) {
       UserModel.show().then((response) => {
         setUser(response.data);
+        console.log(user)
       });
     }
     // this line disables syntax warnings?
@@ -24,11 +26,12 @@ const Header = (props) => {
       setUser(null);
       localStorage.clear();
   }
-
+  
   return (
       <header>
       <div className="logo">
-      <h2>Fauxgram</h2>
+      {user ? <h2>{user.username} Fauxgram</h2> : <div>"...Loading"</div>}
+      
           <ul>
           <li>
               <NavLink to={"/login"}>Login</NavLink>
@@ -42,9 +45,9 @@ const Header = (props) => {
           <li>
               <NavLink to={"post/new"}>PostNew</NavLink>
           </li>
-          <li>
+          {/* <li>
               <NavLink to={"/ProfilePage"}>Profile</NavLink>
-          </li>
+          </li> */}
 
           </ul>
       </div>
