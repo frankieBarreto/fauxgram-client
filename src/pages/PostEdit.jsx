@@ -28,13 +28,14 @@ class PostEdit extends Component {
     console.log(this.state);
     PostModel.edit(this.props.match.params.id, this.state)
     .then(json => {
-      this.props.history.push(`/post/${this.props.match.params.id}`)
+      this.props.history.push(`/posts/${this.props.match.params.id}`)
     });
   };
 
   handleChange = (e) => {
     if (e.target.type !== "text") {
       this.setState({
+        caption: e.target.value,
         image: e.target.value,
       });
     } else {

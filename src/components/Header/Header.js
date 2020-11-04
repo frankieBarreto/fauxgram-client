@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import UserModel from "../../models/UserModel";
-
+import ProfilePage from "../../pages/ProfilePage"
 import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
 
 import { useRecoilState } from "recoil";
@@ -26,10 +26,12 @@ const Header = (props) => {
     setUser(null);
     localStorage.clear();
   }
+  <ProfilePage user={user}/>
 
   return (
     <header>
       <div className="logo"></div>
+      
       {user ? (
         <>
           <Navbar bg="dark" variant="dark">
@@ -52,6 +54,7 @@ const Header = (props) => {
               </Navbar.Text>
             </Form>
           </Navbar>
+          
         </>
       ) : (
         <Navbar bg="dark" variant="dark">
@@ -72,6 +75,7 @@ const Header = (props) => {
             </Form>
           </Navbar>
       )}
+      
     </header>
   );
 };

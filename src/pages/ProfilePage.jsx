@@ -1,44 +1,37 @@
-import React, {useEffect} from "react";
-// import ProfileCarousel from "../components/Profile/ProfileCarousel"
-import ProfilePost from "../components/Profile/ProfilePost"
-import UserModel from "../models/UserModel"
-import PostModel from "../models/PostModel"
-import {useRecoilState} from "recoil";
-import {userState} from "../recoil/atoms"
+import React, { Component } from "react";
+import Posts from "../components/Post/Posts";
+import PostModel from "../models/PostModel";
 
-// FIXME MAKE USER NOT BE UNDEFINED
-function ProfilePage()  {  
-  const [user, setUser] = useRecoilState(userState);
-  const [posts, setPosts] = useRecoilState(userState);
+import { Spinner } from "react-bootstrap";
 
-  useEffect(function () {
+class ProfilePage extends Component {
+  state = {
+    posts: [],
+  };
+
+  componentDidMount() {
+    this.fetchPosts();
+  }
+
+  fetchPosts() {
     if (localStorage.getItem("uid")) {
-      UserModel.show().then((response) => {
-        setUser(response.data);
+      PostModel.all().then((json) => {
+        this.setState({
+          posts: json.post,
+        });
+        console.log(json.post);
       });
     }
-    // this line disables syntax warnings?
-    // eslint-disable-next-line 
-  }, []);
+  }
 
-  useEffect(function () {
-    if (localStorage.getItem("uid")) {
-      PostModel.all().then((response) => {
-        setPosts(response.data);
-      });
-    }
-    // this line disables syntax warnings?
-    // eslint-disable-next-line 
-  }, []);
-
-    // console.log(user, "********profilepage")
-    return (
-      <>
-        {/* <ProfileCarousel data={user}/> */}
-        <ProfilePost data={user} posts={posts}/>
-      </>
+  render() {
+    console.log(this.state.posts, "profilePage");
+    return this.state.posts ? (
+      <Posts data={this.state.posts} />
+    ) : (
+      <Spinner animation="grow" variant="warning" />
     );
-  
+  }
 }
 
 export default ProfilePage;

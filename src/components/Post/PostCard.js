@@ -10,7 +10,6 @@ const PostCard = (props) => {
   // const userId = useRecoilValue(userState)
   const deletePost = (e) => {
     axios.delete(`http://localhost:3001/api/v1/post/${_id}`);
-    
   };
 
   return (

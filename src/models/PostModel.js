@@ -1,5 +1,4 @@
 const URL = "http://localhost:3001/api/v1/post";
-
 class PostModel {
     static all = () => {
         return fetch(URL).then((response) => response.json());
@@ -21,11 +20,11 @@ class PostModel {
     }
 
     static edit = (postId, postData) => {
-        console.log("HEY",postId, postData)
         return fetch(`${URL}/${postId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
+                "authorization": `Bearer ${localStorage.uid}`,
             },
             body: JSON.stringify(postData),
         }).then((response) => response.json());
