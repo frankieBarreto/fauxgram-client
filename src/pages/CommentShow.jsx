@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import PostCard from "../components/Post/PostCard"
-import PostModel from "../models/PostModel";
+import CommentModel from "../models/CommentModel";
 import {Spinner} from "react-bootstrap"
 
-
-
-
-class PostShow extends Component {
+class CommentShow extends Component {
     state = {
-        post: null,
+        comment: null,
     }
 
     componentDidMount() {
@@ -16,23 +13,24 @@ class PostShow extends Component {
     }
 
     fetchPost = () => {
-        PostModel.show(this.props.match.params.id)
+        CommentModel.show(this.props.match.params.id)
           .then(json =>{
               this.setState({
-                  post:json.post
+                  comment:json.comment
               })
           })
     }
 
     
-
     render() {
         return (
-            this.state.post ?
-            <PostCard post={this.state.post} /> :
+            // <CommentCard post={this.state.post} /> :
+            <div>
+            
             <Spinner animation="grow" variant="warning" />
+            </div>
         )
     }
 }
 
-export default PostShow;
+export default CommentShow;

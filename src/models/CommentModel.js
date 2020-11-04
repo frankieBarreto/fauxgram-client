@@ -14,6 +14,7 @@ class CommentModel {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "authorization": `Bearer ${localStorage.uid}`
       },
       body: JSON.stringify(commentData),
     }).then((response) => response.json());
@@ -22,7 +23,7 @@ class CommentModel {
   static update = (commentId, commentData) => {
     return fetch(`${URL}/${commentId}`, {
       method: "PUT",
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(commentData),

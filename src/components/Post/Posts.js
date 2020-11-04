@@ -1,6 +1,6 @@
 import React from 'react';
 import PostCard from './PostCard';
-
+import {Container} from "react-bootstrap"
 const Posts = (props) => {
     console.log(props, "from posts.js")
     function generatePosts(posts) {
@@ -11,9 +11,10 @@ const Posts = (props) => {
     }
 
     return (
-        <div>
+        <Container>
             {generatePosts(props.data)}
-        </div>
+        </Container>
+        
     )
 }
 

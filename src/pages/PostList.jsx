@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Posts from '../components/Post/Posts'
 import PostModel from '../models/PostModel'
 
+import { Spinner } from "react-bootstrap";
+
 //FIXME code not showing all post in post page
 
 class PostList extends Component {
@@ -29,7 +31,7 @@ class PostList extends Component {
   render() {
     console.log(this.state.posts, "postList")
     return(
-      this.state.posts ? <Posts data={this.state.posts} /> : "Spinner"
+      this.state.posts ? <Posts data={this.state.posts} /> : <Spinner animation="grow" variant="warning" />
     )
   }
 }

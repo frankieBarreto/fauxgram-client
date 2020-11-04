@@ -5,8 +5,9 @@ import axios from "axios";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../recoil/atoms";
 
-const PostCard = (props) => {
-  const { caption, image, user, comments, likes, _id, created_at } = props.post;
+const ProfileCards = (props) => {
+  const { caption, image, user, comments, likes, _id, created_at } = props.data;
+  console.log(props.data)
   // const userId = useRecoilValue(userState)
   const deletePost = (e) => {
     axios.delete(`http://localhost:3001/api/v1/post/${_id}`);
@@ -40,4 +41,4 @@ const PostCard = (props) => {
   );
 };
 
-export default PostCard;
+export default ProfileCards;

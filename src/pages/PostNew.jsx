@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import PostModel from "../models/PostModel";
-
+import { Card, Container } from "react-bootstrap";
 class NewPost extends Component {
-  // TODO bring in user id
   state = {
     image: "",
     caption: "",
@@ -14,7 +13,7 @@ class NewPost extends Component {
     PostModel.create(this.state)
       .then((json) => {
       console.log("post.create: ", this.state)
-      this.props.history.push("/post");
+      this.props.history.push("/posts");
     });
   }
 
@@ -26,7 +25,9 @@ class NewPost extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
+      <Card style={{ width: "30rem" }}>
+
         <h2>New Post</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="form-input">
@@ -48,9 +49,11 @@ class NewPost extends Component {
             />
           </div>
 
-          <input type="submit" value="Save!" />
+          <input type="submit" value="Post" />
         </form>
-      </div>
+      
+      </Card>
+    </Container>
     );
   }
 }

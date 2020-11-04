@@ -25,7 +25,7 @@ class PostEdit extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log(this.state);
     PostModel.edit(this.props.match.params.id, this.state)
     .then(json => {
       this.props.history.push(`/post/${this.props.match.params.id}`)
@@ -33,15 +33,15 @@ class PostEdit extends Component {
   };
 
   handleChange = (e) => {
-    // if (e.target.type !== "text") {
-    //   this.setState((prevState) => ({
-    //     image: prevState.image,
-    //   }));
-    // } else {
+    if (e.target.type !== "text") {
+      this.setState({
+        image: e.target.value,
+      });
+    } else {
       this.setState({
         [e.target.name]: e.target.value,
       });
-    // }
+    }
   };
 
 

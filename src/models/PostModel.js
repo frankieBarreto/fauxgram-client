@@ -14,15 +14,17 @@ class PostModel {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+            "authorization": `Bearer ${localStorage.uid}` // authorize actions
             },
             body: JSON.stringify(postData),
         }).then((response) => response.json());
     }
 
-    static update = (postId, postData) => {
+    static edit = (postId, postData) => {
+        console.log("HEY",postId, postData)
         return fetch(`${URL}/${postId}`, {
             method: "PUT",
-            header: {
+            headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(postData),
