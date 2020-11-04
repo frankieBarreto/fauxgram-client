@@ -1,4 +1,4 @@
-const URL = "http://localhost:3001/api/v1/comments";
+const URL = "http://localhost:3001/api/v1/comments/";
 
 class CommentModel {
   static all = () => {
@@ -10,7 +10,7 @@ class CommentModel {
   };
 
   static create = (commentData) => {
-    return fetch(URL, {
+    return fetch(`http://localhost:3001/api/v1/comments/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

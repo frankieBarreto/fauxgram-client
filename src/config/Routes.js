@@ -32,7 +32,8 @@ const Routes = (props) => {
           <Route path="/post/:id" component={PostShow} />
           <Route path="/posts" component={PostList} />
           
-          <Route path="/comment/new" component={CommentNew} />
+          <Route path="/comment/:id/new" component={CommentNew} />
+          <Route path="/comment/:id" component={CommentShow} />
           <Route path="/comments/" component={CommentList} />
 
         </Switch>
@@ -42,3 +43,4 @@ const Routes = (props) => {
 };
 
 export default Routes;
+

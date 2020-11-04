@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Container, Button, Media } from "react-bootstrap";
-
+import { useRecoilValue } from "recoil";
+import { userState } from "../../recoil/atoms";
 import axios from "axios";
 
 const CommentCard = (props) => {
-  const { content, user, _id, } = props.post;
+  const { content, user, _id, } = props.data;
 
   console.log(`caption:`, content);
 
@@ -22,7 +23,6 @@ const CommentCard = (props) => {
 
   return (
     <>
-    <p>;sldjf;aslfjk;asljf;asljf</p>
     <div>
     <Media>
       <img
@@ -33,7 +33,8 @@ const CommentCard = (props) => {
         alt="Generic placeholder"
       />
       <Media.Body>
-        <h5>Media Heading</h5>
+
+        <h5>{content}</h5>
         <p>
           Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
           scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in

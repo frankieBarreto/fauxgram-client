@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Comments from '../components/Comment/Comments'
-import CommentModel from '../models/CommentModel'
+import Comments from "../components/Comment/Comments";
+import CommentModel from "../models/CommentModel";
 
 import { Spinner } from "react-bootstrap";
 
@@ -9,31 +9,28 @@ import { Spinner } from "react-bootstrap";
 class CommentList extends Component {
   state = {
     comments: [],
-    
-  }
-  
+  };
 
   componentDidMount() {
-    this.fetchComments()
+    this.fetchComments();
   }
 
   fetchComments() {
-  
-    CommentModel.all()
-    .then(json=>{
+    CommentModel.all().then((json) => {
       this.setState({
-        comments: json.comment
-      })
-      console.log(json.comment)
-    })
+        comments: json.comment,
+      });
+      console.log(json);
+    });
   }
 
   render() {
-    console.log(this.state.comments, "CommentList")
-    return(
-      <Comments data={this.state.comments} /> 
-      //  <Spinner animation="grow" variant="warning" />
-    )
+    console.log(this.state.comments, "CommentList");
+    return this.state.comments ? (
+      <Comments data={this.state.comments} />
+    ) : (
+      <Spinner animation="grow" variant="warning" />
+    );
   }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PostCard from "../components/Post/PostCard"
+import CommentCard from "../components/Comment/CommentCard"
 import CommentModel from "../models/CommentModel";
 import {Spinner} from "react-bootstrap"
 
@@ -9,10 +9,10 @@ class CommentShow extends Component {
     }
 
     componentDidMount() {
-        this.fetchPost();
+        this.fetchComment();
     }
 
-    fetchPost = () => {
+    fetchComment = () => {
         CommentModel.show(this.props.match.params.id)
           .then(json =>{
               this.setState({
@@ -24,11 +24,9 @@ class CommentShow extends Component {
     
     render() {
         return (
-            // <CommentCard post={this.state.post} /> :
-            <div>
-            
+            this.state.comment ?
+            <CommentCard data={this.state.comment} /> :
             <Spinner animation="grow" variant="warning" />
-            </div>
         )
     }
 }

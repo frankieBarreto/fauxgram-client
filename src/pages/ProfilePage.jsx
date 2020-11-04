@@ -5,9 +5,12 @@ import PostModel from "../models/PostModel";
 import { Spinner } from "react-bootstrap";
 
 class ProfilePage extends Component {
-  state = {
-    posts: [],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+    };
+  }
 
   componentDidMount() {
     this.fetchPosts();
@@ -25,7 +28,8 @@ class ProfilePage extends Component {
   }
 
   render() {
-    console.log(this.state.posts, "profilePage");
+    console.log(this.props.user, "profilePage");
+
     return this.state.posts ? (
       <Posts data={this.state.posts} />
     ) : (

@@ -12,13 +12,14 @@ class NewPost extends Component {
 
     CommentModel.create(this.state).then((json) => {
       console.log("comment.create: ", this.state);
-      this.props.history.push("/comment");
+      this.props.history.push("/comments");
     });
   };
 
-  handleChange = (event) => {
+  handleChange = (e) => {
+    console.log(e)
     this.setState({
-      [event.target.name]: event.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -34,7 +35,7 @@ class NewPost extends Component {
                 type="text"
                 name="content"
                 onChange={this.handleChange}
-                value={this.state.comment}
+                value={this.state.content}
               />
             </div>
             <input type="submit" value="Comment" />

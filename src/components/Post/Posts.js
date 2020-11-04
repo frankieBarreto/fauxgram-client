@@ -6,7 +6,7 @@ const Posts = (props) => {
     function generatePosts(posts) {
         console.log(posts, "from posts.js")
         return posts.map(post => {
-            return <PostCard key={post.id} post={post} />
+            return <PostCard key={post.id} post={post} delete={props.delete}/>
         })
     }
 
