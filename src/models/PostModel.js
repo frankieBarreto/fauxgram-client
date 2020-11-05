@@ -3,6 +3,7 @@ class PostModel {
     static all = () => {
         return fetch(URL).then((response) => response.json());
     };
+    
 
     static show = (postId) => {
         return fetch(`${URL}/${postId}`).then((response) => response.json());
@@ -29,6 +30,8 @@ class PostModel {
             body: JSON.stringify(postData),
         }).then((response) => response.json());
     };
+
+
 
     
 }

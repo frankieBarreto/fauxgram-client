@@ -9,7 +9,7 @@ import { userState } from "../../recoil/atoms";
 import "./Header.css";
 
 const Header = (props) => {
-  const [user, setUser] = useRecoilState(userState);
+const [user, setUser] = useRecoilState(userState);
 
   useEffect(function () {
     if (localStorage.getItem("uid")) {
@@ -26,7 +26,7 @@ const Header = (props) => {
     setUser(null);
     localStorage.clear();
   }
-  <ProfilePage user={user}/>
+  
 
   return (
     <header>
@@ -37,8 +37,7 @@ const Header = (props) => {
           <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="/">Fauxgram</Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link href={"/login"}>Login</Nav.Link>
-              <Nav.Link href={"/register"}>Register</Nav.Link>
+              <Nav.Link onClick={logout}>Logout</Nav.Link>
               <Nav.Link href={"/posts"}>Posts</Nav.Link>
               <Nav.Link href={"post/new"}>PostNew</Nav.Link>
             </Nav>
@@ -54,7 +53,6 @@ const Header = (props) => {
               </Navbar.Text>
             </Form>
           </Navbar>
-          
         </>
       ) : (
         <Navbar bg="dark" variant="dark">
@@ -75,6 +73,7 @@ const Header = (props) => {
             </Form>
           </Navbar>
       )}
+          
       
     </header>
   );
