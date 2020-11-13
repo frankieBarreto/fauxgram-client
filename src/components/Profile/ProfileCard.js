@@ -1,27 +1,18 @@
 import React from 'react';
 import PostCard from "../Post/PostCard";
-import { Container } from "react-bootstrap"
+import { Container, Row} from "react-bootstrap"
 
 const ProfileCard = (props) => {
     
-    // function generatePosts(posts) {
-    //     console.log(posts, "from posts.js")
-    //     return posts.map(post => {
-    //         return <PostCard key={post.id} post={post} />
-    //     })
-    // }
-
+    console.log("from profilepage", props)
     return (
-        <div>
-            {props.data && props.data.post.map(post=>{
-                return <PostCard key={post.id} post={post} />
-            })}
-        </div>
+        
+        <Container>
+            {props.data && (props.data.map(post=>{
+                return <Row><PostCard key={post.id} post={post} delete={props.delete}/></Row>
+            }))}
+        </Container>
+        
     )
 }
-        // <Container>
-        //     {generatePosts(props.data)}
-        // </Container>
-// delete={props.delete}
-
 export default ProfileCard;

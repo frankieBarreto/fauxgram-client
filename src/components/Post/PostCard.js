@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card, Container, Button, ButtonGroup } from "react-bootstrap";
+import { Card, Container, Button, ButtonGroup, Row, Col } from "react-bootstrap";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../recoil/atoms";
 
@@ -11,11 +11,16 @@ const PostCard = (props) => {
 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
+    <Col>
+    <br></br>
+
+    
+      <Card border="info" style={{ width: "18rem"}}>
+      
         <Link to={`/post/${_id}`}>
           <Card.Img variant="top" src={image} />
         </Link>
-        <Card.Body>
+        <Card.Body style={{ background: "cornsilk" }}>
           <Card.Text>
             <container className="blockquote-footer">
               @{user ? user.username : "Undefined"}:&nbsp;
@@ -37,6 +42,7 @@ const PostCard = (props) => {
           </Card.Text>
         </Card.Body>
       </Card>
+      </Col>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CommentModel from "../models/PostModel";
+import CommentModel from "../models/CommentModel";
 import { Card, Container } from "react-bootstrap";
 class NewPost extends Component {
   // content user and post
@@ -9,7 +9,7 @@ class NewPost extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log("from commentnew:", this.state.content)
     CommentModel.create(this.state).then((json) => {
       console.log("comment.create: ", this.state);
       this.props.history.push("/comments");
@@ -19,7 +19,7 @@ class NewPost extends Component {
   handleChange = (e) => {
     console.log(e)
     this.setState({
-      [e.target.name]: e.target.value,
+      content: e.target.value,
     });
   };
 

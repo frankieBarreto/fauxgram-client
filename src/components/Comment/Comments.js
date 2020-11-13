@@ -5,9 +5,11 @@ import CommentCard from "./CommentCard"
 const Comments = (props) => {
     console.log("from Comments: ", props.data)
     function generateComments(comments) {
-        return comments.map(comment => (
-         <CommentCard data={comment} />
-        ))
+        console.log(comments)
+        return comments.map(comment => {
+            console.log(comment)
+         return <CommentCard data={comment} />
+        })
     }
 
     return (

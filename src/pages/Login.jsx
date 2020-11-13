@@ -25,16 +25,16 @@ function Login(props) {
     }
 
     return (
-      <Container>
-      <Card style={{ width: "30rem" }}>
-      <Card.Body>
+      <Container class="login">
+      <Card border="info" style={{ width: "30rem" }}>
+      <Card.Body >
         
       
-        <div>
+        <div >
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div className='form-input'>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email'>Email:&nbsp;</label>
           <input
             type='text'
             name='email'
@@ -43,7 +43,7 @@ function Login(props) {
           />
         </div>
         <div className='form-input'>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='password'>Password:&nbsp;</label>
           <input
             type='password'
             name='password'

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Posts from "../components/Post/Posts";
 import PostModel from "../models/PostModel";
 import axios from "axios";
-
+import  "../components/Post/Post.css"
 import { Spinner } from "react-bootstrap";
 
 class PostList extends Component {
@@ -19,7 +19,7 @@ class PostList extends Component {
       this.setState({
         posts: json.post,
       });
-      console.log(json.post);
+      
     });
   }
 
@@ -33,7 +33,6 @@ class PostList extends Component {
   };
 
   render() {
-    console.log(this.state.posts, "postList");
     return this.state.posts ? (
       <Posts data={this.state.posts} delete={this.deletePost}/>
     ) : (

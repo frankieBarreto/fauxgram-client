@@ -1,19 +1,24 @@
 import React from 'react';
 import PostCard from './PostCard';
-import { Container } from "react-bootstrap"
+import { Container, Row, Col, } from "react-bootstrap"
+
 const Posts = (props) => {
-    console.log(props, "from posts.js")
+    
     function generatePosts(posts) {
-        console.log(posts, "from posts.js")
         return posts.map(post => {
             return <PostCard key={post.id} post={post} delete={props.delete}/>
         })
     }
 
     return (
+
+        
         <Container>
+        <Row>
             {generatePosts(props.data)}
+        </Row>
         </Container>
+        
 
     )
 }

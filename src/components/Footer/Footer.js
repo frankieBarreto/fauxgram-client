@@ -8,9 +8,50 @@ import "./Footer.css";
 
 const Footer = (props) => {
   return (
-    <footer>
+    <div class="position-sticky">
+
+    <footer class="position-sticky">
+    <SocialIcon network="linkedin" fgColor="#ff5a01"/>
+    <SocialIcon network="pinterest" fgColor="#ff5a01"/>
+    <SocialIcon network="twitter" fgColor="#ff5a01" />
+    <SocialIcon network="facebook" fgColor="#ff5a01" />
+    <SocialIcon network="instagram" fgColor="#ff5a01" />
+    <SocialIcon network="linkedin" fgColor="#ff5a01"/>
+    <SocialIcon network="pinterest" fgColor="#ff5a01"/>
+    <SocialIcon network="twitter" fgColor="#ff5a01" />
+    <SocialIcon network="facebook" fgColor="#ff5a01" />
+    <SocialIcon network="instagram" fgColor="#ff5a01" />
+    <SocialIcon network="linkedin" fgColor="#ff5a01"/>
+    <SocialIcon network="pinterest" fgColor="#ff5a01"/>
+    <SocialIcon network="twitter" fgColor="#ff5a01" />
+    <SocialIcon network="facebook" fgColor="#ff5a01" />
+    <SocialIcon network="instagram" fgColor="#ff5a01" />
+    <SocialIcon network="linkedin" fgColor="#ff5a01"/>
+    <SocialIcon network="pinterest" fgColor="#ff5a01"/>
+    <SocialIcon network="twitter" fgColor="#ff5a01" />
+    <SocialIcon network="facebook" fgColor="#ff5a01" />
+    <SocialIcon network="instagram" fgColor="#ff5a01" />
+    <SocialIcon network="linkedin" fgColor="#ff5a01"/>
+    <SocialIcon network="pinterest" fgColor="#ff5a01"/>
+    <SocialIcon network="twitter" fgColor="#ff5a01" />
+    <SocialIcon network="facebook" fgColor="#ff5a01" />
+    <SocialIcon network="instagram" fgColor="#ff5a01" />
+    <SocialIcon network="linkedin" fgColor="#ff5a01"/>
+    <SocialIcon network="pinterest" fgColor="#ff5a01"/>
+    <SocialIcon network="twitter" fgColor="#ff5a01" />
+    <SocialIcon network="facebook" fgColor="#ff5a01" />
+    <SocialIcon network="instagram" fgColor="#ff5a01" />
+    <SocialIcon network="linkedin" fgColor="#ff5a01"/>
+    <SocialIcon network="pinterest" fgColor="#ff5a01"/>
+    <SocialIcon network="twitter" fgColor="#ff5a01" />
+    <SocialIcon network="facebook" fgColor="#ff5a01" />
+    <SocialIcon network="instagram" fgColor="#ff5a01" />
+    <SocialIcon network="linkedin" fgColor="#ff5a01"/>
+    <SocialIcon network="pinterest" fgColor="#ff5a01"/>
+   
     
     </footer>
+    </div>
   );
 };
 
